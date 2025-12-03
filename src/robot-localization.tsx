@@ -11,30 +11,8 @@ function CameraController({ is2d, zoom2d = 20, zoom3d = 1, x = 0, y = 0 }: { is2
   MathUtils.clamp(zoom3d, 1, 25);
   return (
     <>
-      {is2d ? (
-        <OrthographicCamera
-          makeDefault
-          position={[x, 15, y]}
-          zoom={zoom2d + 20}
-          near={0.01}
-          far={10000}
-        />
-      ) : (
-        <PerspectiveCamera
-          makeDefault
-          position={[10, 15, 10]}
-          fov={50}
-          zoom={zoom3d}
-          near={0.01}
-          far={10000}
-        />
-      )}
-      <OrbitControls
-        enablePan={is2d}
-        enableRotate={!is2d}
-        minDistance={3}
-        maxDistance={50}
-      />
+      {is2d ? (<OrthographicCamera makeDefault position={[x, 15, y]} zoom={zoom2d + 20} near={0.01} far={10000} />) : (<PerspectiveCamera makeDefault position={[10, 15, 10]} fov={50} zoom={zoom3d} near={0.01} far={10000} />)}
+      <OrbitControls enablePan={is2d} enableRotate={!is2d} minDistance={3} maxDistance={50} />
     </>
   );
 }

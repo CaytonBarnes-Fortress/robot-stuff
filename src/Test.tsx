@@ -7,7 +7,7 @@ export default function Test() {
   const [roll, setRoll] = useState(0);
   const [heading, setHeading] = useState(0);
   const [is2d, setIs2d] = useState(false);
-  const [zoom, setZoom] = useState(20);
+  const [zoom, setZoom] = useState(1);
 
   const randomDelta = () => (Math.random() * 20 - 10);
   const clamp = (val: number) => Math.max(-180, Math.min(180, val));
