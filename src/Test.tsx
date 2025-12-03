@@ -7,6 +7,7 @@ export default function Test() {
   const [roll, setRoll] = useState(0);
   const [heading, setHeading] = useState(0);
   const [is2d, setIs2d] = useState(false);
+  const [zoom, setZoom] = useState(20);
 
   const randomDelta = () => (Math.random() * 20 - 10);
   const clamp = (val: number) => Math.max(-180, Math.min(180, val));
@@ -62,6 +63,8 @@ useEffect(() => {
   return (
     <>
     <button onClick={() => setIs2d(!is2d)}>Toggle View (Currently {is2d ? "2D" : "3D"})</button>
+    <button onClick={() => setZoom(zoom + 1)}> Zoom +1 </button>
+    <button onClick={() => setZoom(zoom - 1)}> Zoom -1 </button>
       <RobotLocalization
         root={ROOT}
         robot={robot}
@@ -69,6 +72,8 @@ useEffect(() => {
         environmentUrl="/environment.glb"
         style={{ width: '1200px', height: '600px' }}
         is2d={is2d}
+        zoom2d={zoom}
+        zoom3d={zoom}
         transparent
       />
     </>

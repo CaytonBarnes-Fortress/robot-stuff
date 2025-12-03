@@ -84,11 +84,7 @@ export const EnvironmentModel: React.FC<{ url: string; scale?: number; visible?:
       setObject(obj);
     };
 
-    // const setOpacity = (obj: THREE.Object3D) => {
-    // }
-
     load();
-    // setOpacity(object!);
   }, [object, url, visible]);
 
   
